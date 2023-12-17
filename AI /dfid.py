@@ -1,61 +1,62 @@
-def depth_deepening(graph,start,goal,depth_limit):
-    stack=[(start,[],0)]
-    visited=set()
+# def depth_deepening(graph,start,goal,depth_limit):
+#     stack=[(start,[],0)]
+#     visited=set()
 
-    while stack:
-        print(f"Stack: {stack}")
-        print(f"Visited: {visited}")
+#     while stack:
+#         print(f"Stack: {stack}")
+#         print(f"Visited: {visited}")
 
-        current_node,path,depth=stack.pop()
+#         current_node,path,depth=stack.pop()
 
-        if current_node==goal:
-            print(f"\nPath has been found! : {path +[current_node]}\n")
-            return path+ [current_node]
+#         if current_node==goal:
+#             print(f"\nPath has been found! : {path +[current_node]}\n")
+#             return path+ [current_node]
         
-        if depth<depth_limit and current_node not in visited:
-            visited.add(current_node)
-            neighbours=graph[current_node]
+#         if depth<depth_limit and current_node not in visited:
+#             visited.add(current_node)
+#             neighbours=graph[current_node]
 
-            for neighbour in neighbours:
-                if neighbour not in visited:
-                    stack.append((neighbour,path+[current_node],depth+1))
+#             for neighbour in neighbours:
+#                 if neighbour not in visited:
+#                     stack.append((neighbour,path+[current_node],depth+1))
 
 
-    print("\nNo path found!\n")
-    return None
+#     print("\nNo path found!\n")
+#     return None
 
-def depth_iterative(graph,start,goal):
-    depth_limit=0
+# def depth_iterative(graph,start,goal):
+#     depth_limit=0
 
-    while True:
+#     while True:
 
-        result=depth_deepening(graph,start,goal,depth_limit)
+#         result=depth_deepening(graph,start,goal,depth_limit)
 
-        if result:
-            return result
+#         if result:
+#             return result
         
-        else:
-            depth_limit+=1
+#         else:
+#             depth_limit+=1
             
 
-graph={
-    'A':['B','C'],
-    'B':['A','D','E'],
-    'C':['A','F','G'],
-    'D':['B'],
-    'E':['B','H'],
-    'F':['C'],
-    'G':['C'],
-    'H':['E']
-}
+# graph={
+#     'A':['B','C'],
+#     'B':['A','D','E'],
+#     'C':['A','F','G'],
+#     'D':['B'],
+#     'E':['B','H'],
+#     'F':['C'],
+#     'G':['C'],
+#     'H':['E']
+# }
 
-start_node='A'
-goal_node='H'
+# start_node='A'
+# goal_node='H'
 
-depth_iterative(graph,start_node,goal_node)
+# depth_iterative(graph,start_node,goal_node)
 
 # ----------------------------------------------------------------------------------------------------------------------------
 
+# >>>>>>>> Doing this one <<<<<<<<<<<<<<<<<<
 graph = {
   'A': ['B', 'C'],
   'B': ['A','D','E'],

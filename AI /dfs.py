@@ -1,49 +1,48 @@
-def dfs(graph,start,goal):
-    stack=[(start,[])]
-    visited=set()
+# def dfs(graph,start,goal):
+#     stack=[(start,[])]
+#     visited=set()
 
-    while stack:
-        print(f"Stack: {stack}")
-        print(f"Visited: {visited}")
+#     while stack:
+#         print(f"Stack: {stack}")
+#         print(f"Visited: {visited}")
 
-        current_node,path=stack.pop()
+#         current_node,path=stack.pop()
 
-        if current_node==goal:
-            print(f"Path has been found! : {path +[current_node]}")
-            return path+ [current_node]
+#         if current_node==goal:
+#             print(f"Path has been found! : {path +[current_node]}")
+#             return path+ [current_node]
         
-        if current_node not in visited:
-            visited.add(current_node)
-            neighbours=graph[current_node]
+#         if current_node not in visited:
+#             visited.add(current_node)
+#             neighbours=graph[current_node]
 
-            for neighbour in neighbours:
-                if neighbour not in visited:
-                    stack.append((neighbour,path+[current_node]))
-
-
-    print("No path found!")
-    return None
+#             for neighbour in neighbours:
+#                 if neighbour not in visited:
+#                     stack.append((neighbour,path+[current_node]))
 
 
-graph={
-    'A':['B','C'],
-    'B':['A','D','E'],
-    'C':['A','F','G'],
-    'D':['B'],
-    'E':['B','H'],
-    'F':['C'],
-    'G':['C'],
-    'H':['E']
-}
+#     print("No path found!")
+#     return None
 
-start_node='A'
-goal_node='D'
 
-dfs(graph,start_node,goal_node)
+# graph={
+#     'A':['B','C'],
+#     'B':['A','D','E'],
+#     'C':['A','F','G'],
+#     'D':['B'],
+#     'E':['B','H'],
+#     'F':['C'],
+#     'G':['C'],
+#     'H':['E']
+# }
+
+# start_node='A'
+# goal_node='D'
+
+# dfs(graph,start_node,goal_node)
 
 # ----------------------------------------------------------------------------------------------------------------------------
-
-
+# >>>>>>>> Doing this one <<<<<<<<<<<<<<<<<<
 graph = {
   'A': ['B', 'C'],
   'B': ['A','D','E'],

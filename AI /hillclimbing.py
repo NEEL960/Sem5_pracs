@@ -14,68 +14,68 @@
 
 
 # (neighbour,level)
-adjacent_list = { 
-    'S': [('A', 1), ('B', 1), ('C', 1)],
-    'A': [('S', 0), ('E', 2)],
-    'B': [('S', 0), ('D', 2), ('E', 2)],
-    'C': [('S', 0), ('D', 2)],
-    'D': [('B', 1), ('C', 1), ('F', 3)],
-    'E': [('A', 1), ('B', 1), ('F', 3)],
-    'F': [('E', 2), ('D', 2), ('G', 4)],
-    'G': [('F', 3)],
-}
+# adjacent_list = { 
+#     'S': [('A', 1), ('B', 1), ('C', 1)],
+#     'A': [('S', 0), ('E', 2)],
+#     'B': [('S', 0), ('D', 2), ('E', 2)],
+#     'C': [('S', 0), ('D', 2)],
+#     'D': [('B', 1), ('C', 1), ('F', 3)],
+#     'E': [('A', 1), ('B', 1), ('F', 3)],
+#     'F': [('E', 2), ('D', 2), ('G', 4)],
+#     'G': [('F', 3)],
+# }
 
-heuristic = {
-    'S':17,
-    'A':10,
-    'B':13,
-    'C':4,
-    'D':2,
-    'E':4,
-    'F':5,
-    'G':0
-}
+# heuristic = {
+#     'S':17,
+#     'A':10,
+#     'B':13,
+#     'C':4,
+#     'D':2,
+#     'E':4,
+#     'F':5,
+#     'G':0
+# }
 
-def hillclimbing(start,start_depth):
-    queue=[[start,[],start_depth]]
-    visited=[]
-    temp=[]
+# def hillclimbing(start,start_depth):
+#     queue=[[start,[],start_depth]]
+#     visited=[]
+#     temp=[]
 
-    while queue:
+#     while queue:
         
 
-        print(f"Queue: {queue}")
-        print(f"Visited: {visited}")
-        print("---------------------------------------")
+#         print(f"Queue: {queue}")
+#         print(f"Visited: {visited}")
+#         print("---------------------------------------")
 
-        temp=queue.copy()
-        current,path,level=queue.pop(0)
-        queue.clear()
+#         temp=queue.copy()
+#         current,path,level=queue.pop(0)
+#         queue.clear()
 
-        heu=heuristic[current]
-        visited.append(current)
+#         heu=heuristic[current]
+#         visited.append(current)
 
-        for (i,j) in adjacent_list[current]:
-            if i not in visited:
-                visited.append(i)
+#         for (i,j) in adjacent_list[current]:
+#             if i not in visited:
+#                 visited.append(i)
 
-            if j==level+1 and heuristic[i]<heu:
-                if len(queue)==0:
-                    queue.append([i,path+[current],level+1])
-                    visited.remove(i)
+#             if j==level+1 and heuristic[i]<heu:
+#                 if len(queue)==0:
+#                     queue.append([i,path+[current],level+1])
+#                     visited.remove(i)
 
-                else:
-                    if heuristic[i]<heuristic[queue[0][0]]:
-                        visited.append(queue[0][0])
-                        queue.pop()
-                        queue.append([i,path+[current],level+1])
-                        visited.remove(i)
+#                 else:
+#                     if heuristic[i]<heuristic[queue[0][0]]:
+#                         visited.append(queue[0][0])
+#                         queue.pop()
+#                         queue.append([i,path+[current],level+1])
+#                         visited.remove(i)
 
-    print(f"Final Node: {temp[0][0]}\n Path: {path}\n Level:{temp[0][2]}\n Min Heuristic: {heuristic[temp[0][0]]}")                    
+#     print(f"Final Node: {temp[0][0]}\n Path: {path}\n Level:{temp[0][2]}\n Min Heuristic: {heuristic[temp[0][0]]}")                    
 
 
 
-hillclimbing('S',0)
+# hillclimbing('S',0)
 
 # ------------------------------------------------------------------------------------------------------------------------------
 graph = [

@@ -1,48 +1,49 @@
-def bfs(graph,start,goal):
-    queue=[(start,[])]
-    visited=set()
+# def bfs(graph,start,goal):
+#     queue=[(start,[])]
+#     visited=set()
 
-    while queue:
-        print(f"Queue: {queue}")
-        print(f"Visited: {visited}")
+#     while queue:
+#         print(f"Queue: {queue}")
+#         print(f"Visited: {visited}")
 
-        current_node,path=queue.pop(0)
+#         current_node,path=queue.pop(0)
 
-        if current_node==goal:
-            print(f"Path has been found! : {path +[current_node]}")
-            return path+ [current_node]
+#         if current_node==goal:
+#             print(f"Path has been found! : {path +[current_node]}")
+#             return path+ [current_node]
         
-        if current_node not in visited:
-            visited.add(current_node)
-            neighbours=graph[current_node]
+#         if current_node not in visited:
+#             visited.add(current_node)
+#             neighbours=graph[current_node]
 
-            for neighbour in neighbours:
-                if neighbour not in visited:
-                    queue.append((neighbour,path+[current_node]))
-
-
-    print("No path found!")
-    return None
+#             for neighbour in neighbours:
+#                 if neighbour not in visited:
+#                     queue.append((neighbour,path+[current_node]))
 
 
-graph={
-    'A':['B','C'],
-    'B':['A','D','E'],
-    'C':['A','F','G'],
-    'D':['B'],
-    'E':['B','H'],
-    'F':['C'],
-    'G':['C'],
-    'H':['E']
-}
+#     print("No path found!")
+#     return None
 
-start_node='A'
-goal_node='D'
 
-bfs(graph,start_node,goal_node)
+# graph={
+#     'A':['B','C'],
+#     'B':['A','D','E'],
+#     'C':['A','F','G'],
+#     'D':['B'],
+#     'E':['B','H'],
+#     'F':['C'],
+#     'G':['C'],
+#     'H':['E']
+# }
+
+# start_node='A'
+# goal_node='D'
+
+# bfs(graph,start_node,goal_node)
 
 # ----------------------------------------------------------------------------------------------------------------------------
 
+# >>>>>>>> Doing this one <<<<<<<<<<<<<<<<<<
 def bfs(graph, src,goal,visited):
     visited.append(src)
     queue.append(src)
